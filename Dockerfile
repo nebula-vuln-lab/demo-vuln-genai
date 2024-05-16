@@ -2,7 +2,6 @@
 FROM cgr.dev/chainguard/python:latest-dev
 
 USER root
-
 WORKDIR /app
 
 COPY requirements.txt /app
