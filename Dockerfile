@@ -17,4 +17,5 @@ RUN apk update && \
 # Make sure the entire project directory is copied
 COPY . /app
 
+
 CMD ["app.py"]
