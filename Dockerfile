@@ -5,7 +5,6 @@ USER root
 WORKDIR /app
 
 COPY requirements.txt /app
-
 # Install Python packages specified in requirements.txt
 # and additional package psutil
 RUN apk update && \
