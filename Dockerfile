@@ -17,6 +17,8 @@ RUN apk update && \
     pip install -U aiohttp==3.9.0rc0
 
 
+
+
 # Make sure the entire project directory is copied
 COPY . /app
 
