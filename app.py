@@ -4,7 +4,7 @@ import sys
 from langchain_openai import ChatOpenAI
 from langchain.agents import tool, AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
+import os
 from langchain.agents.format_scratchpad.openai_tools import (
     format_to_openai_tool_messages,
 )
