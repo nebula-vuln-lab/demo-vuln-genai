@@ -151,5 +151,26 @@ def process_input():
     print(f"Response: {response}")
     return jsonify({"response": response})
 
+
+# Vulnerable endpoint that demonstrates a path traversal attack
+@app.route('/view-file', methods=['GET'])
+def view_file():
+    # Get the filename from the query parameter
+    filename = request.args.get('filename')
+    
+    # The vulnerable directory - simulating a folder with restricted access files
+    base_directory = 'files/'
+    
+    # Create the full path by concatenating the base directory and filename (vulnerable to path traversal)
+    file_path = os.path.join(base_directory, filename)
+    
+    try:
+        # Open and read the file content (vulnerable part)
+        with open(file_path, 'r') as file:
+            content = file.read()
+        return jsonify({"content": content})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+        
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001, debug=True)
